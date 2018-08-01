@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Snakes Directory</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+ 
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="{% static 'app.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  bg-default navbar-custom ">        
+     <a id="my_home" class="navbar-brand" href="{% url 'index' %}">Home </a>   
+     <a id="my_theme" class="navbar-brand" href=""> Dark Theme </a>   
+     <a id="my_font" class="navbar-brand" href=""> Change Font </a>     
+        <div class="navbar-collapse dual-collapse2">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'add-snake' %}"              
+                class="nav-link"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Link to add more snakes ..."
+              >Add Snake <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'snakes' %}"              
+                class="nav-link"
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Link to view and edit snake page ..."
+              >Edit Snake </a>
+            </li>            
+          </ul>          
+        </div>
+      </nav>
+  <div >
+  <main >
+   
+      {% block content %}
+      {% endblock content %}
+  
+  </main>
+  <footer >
+   
+      <div class="footer-copyright text-center py-3">© 2018 Copyright: Alexey Mastryukov </div>
+   
+  </footer>
+  </div> 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="{% static 'app.js' %}"></script>
+  <script src="{% static 'my_scripts.js' %}"></script>
+ 
+</body>
+</html>

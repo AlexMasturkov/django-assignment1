@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="my_edit" class="row justify-content-left">
+    <div class="col-12 col-sm-12">
+        <h3 class="mb-4">List Snakes</h3>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-primary" role="alert">
+           {{ message }}           
+          </div>
+        {% endfor %}
+      {% endif %}
+      <table id ="myTable" data-order='[[1,"asc"]]' data-page-length='4' class="table table-bordered display">
+        <thead class="thead-dark">
+          <tr>
+            <th data-class-name="priority">Snake</th>
+            <th>Description</th>
+            <th>Pattern</th>
+            <th>Prey</th>
+            <th>Region</th>
+            <th >Venomous</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if snakes.count == 0 %}
+            <tr>
+              <td colspan="4" class="text-center">You currently have no Snakes!</td>
+            </tr>
+          {% else %}
+            {% for snake in snakes %}
+              <tr>
+                <td>{{ snake.name }}</td>
+                <td>{{ snake.description }}</td>
+                <td>{{ snake.color_pattern }}</td>                
+                <td>{{ snake.favourite_prey }}</td>
+                <td>{{ snake.region }}</td>
+                <td>{{ snake.venomous }}</td>
+                <td>
+                    <a href="{% url 'edit-snake' snake.id %}" class="btn btn-primary btn-sm">Edit</a>                 
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock content %}
